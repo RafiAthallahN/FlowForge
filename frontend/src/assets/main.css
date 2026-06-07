@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  
+  --color-brand-primary: #3b82f6;
+  --color-brand-purple: #8b5cf6;
+  --color-brand-green: #22c55e;
+  --color-brand-red: #ef4444;
+  --color-brand-amber: #f59e0b;
+  --color-brand-slate: #64748b;
+  
+  --color-bg-deep: #070714;
+  --color-bg-card: rgba(17, 17, 35, 0.45);
+  --color-bg-card-hover: rgba(25, 25, 50, 0.6);
+  --color-bg-input: rgba(12, 12, 28, 0.7);
+  
+  --color-border-subtle: rgba(139, 92, 246, 0.12);
+  --color-border-glow: rgba(59, 130, 246, 0.25);
+  
+  --radius-xl: 1.5rem;
+  --radius-lg: 1rem;
+  --radius-md: 0.625rem;
+}
+
+@layer base {
+  html, body {
+    @apply h-full bg-bg-deep text-[#e8e8ff] antialiased;
+    font-family: var(--font-sans);
+  }
+
+  /* Custom glassmorphism scrollbars */
+  ::-webkit-scrollbar {
+    @apply w-1.5 h-1.5;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-bg-deep;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-brand-slate/40 rounded-full hover:bg-brand-primary/60 transition-colors;
+  }
+}
+
+/* Custom premium glassmorphism card style */
+@utility glass-card {
+  @apply bg-bg-card backdrop-blur-xl border border-border-subtle rounded-lg shadow-lg hover:bg-bg-card-hover hover:border-border-glow hover:shadow-2xl hover:shadow-brand-primary/5 transition-all duration-300;
+}
+
+@utility text-gradient {
+  @apply bg-gradient-to-r from-brand-primary to-brand-purple bg-clip-text text-transparent;
+}
+
+@utility text-gradient-success {
+  @apply bg-gradient-to-r from-brand-green to-cyan-400 bg-clip-text text-transparent;
+}
+
+@utility text-gradient-danger {
+  @apply bg-gradient-to-r from-brand-red to-orange-400 bg-clip-text text-transparent;
+}
+
+/* Input Fields styling */
+@utility app-input {
+  @apply w-full px-3.5 py-2.5 bg-bg-input border border-border-subtle rounded-md text-[#e8e8ff] text-sm focus:border-brand-primary focus:ring-4 focus:ring-brand-primary/10 transition-all duration-200 outline-none;
+}
+
+/* Premium Button Styling */
+@utility btn-primary {
+  @apply inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-brand-primary to-brand-purple text-white text-sm font-semibold rounded-md shadow-lg shadow-brand-primary/25 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand-primary/35 active:translate-y-0 transition-all duration-200 cursor-pointer;
+}
+
+@utility btn-secondary {
+  @apply inline-flex items-center gap-2 px-5 py-2.5 bg-bg-input border border-border-subtle text-brand-slate text-sm font-semibold rounded-md hover:border-brand-primary/45 hover:text-white transition-all duration-200 cursor-pointer;
+}
+
+@utility btn-danger {
+  @apply inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-brand-red to-orange-500 text-white text-sm font-semibold rounded-md shadow-lg shadow-brand-red/25 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand-red/35 active:translate-y-0 transition-all duration-200 cursor-pointer;
+}
+
+@utility btn-sm {
+  @apply px-3.5 py-1.5 text-xs;
+}
+
+/* Badges */
+@utility app-badge {
+  @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border;
+}
+
+@utility badge-pending {
+  @apply bg-brand-slate/10 text-brand-slate border-brand-slate/20;
+}
+
+@utility badge-running {
+  @apply bg-brand-primary/10 text-brand-primary border-brand-primary/20 animate-pulse;
+}
+
+@utility badge-success {
+  @apply bg-brand-green/10 text-brand-green border-brand-green/20;
+}
+
+@utility badge-failed {
+  @apply bg-brand-red/10 text-brand-red border-brand-red/20;
+}

@@ -1,0 +1,11 @@
+# Local environment variables
+.env
+
+# Go binaries and DB files
+backend/flowforger.db
+*.db
+
+# Node dependencies and build folders
+node_modules/
+dist/
+.vscode/
