@@ -88,7 +88,7 @@ func RequireRoles(allowedRoles ...string) fiber.Handler {
 		if roleVal == nil {
 			return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{"error": "Unauthorized"})
 		}
-		
+
 		userRole := roleVal.(string)
 		for _, r := range allowedRoles {
 			if r == userRole {
@@ -98,4 +98,3 @@ func RequireRoles(allowedRoles ...string) fiber.Handler {
 		return c.Status(fiber.StatusForbidden).JSON(fiber.Map{"error": "Forbidden - Insufficient permissions"})
 	}
 }
-

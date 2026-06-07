@@ -144,7 +144,7 @@ func seedData(db *gorm.DB) {
 				}
 			]
 		}`
-		
+
 		ctx := context.WithValue(context.Background(), "tenant_id", "tenant-a")
 		wf := &domain.Workflow{
 			ID:         "wf-default",

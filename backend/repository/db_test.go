@@ -2,11 +2,11 @@ package repository
 
 import (
 	"context"
-	"testing"
-	"time"
 	"github.com/flow-forger/flow-forger/backend/domain"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
+	"testing"
+	"time"
 )
 
 func TestDBAndRepository(t *testing.T) {
@@ -133,4 +133,3 @@ func TestForeignKeysAndNotFound(t *testing.T) {
 		t.Error("expected foreign key violation error for non-existent WorkflowRun, got nil")
 	}
 }
-

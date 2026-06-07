@@ -152,4 +152,3 @@ func (r *RunRepository) GetHealthMetrics(ctx context.Context) (*HealthMetrics, e
 
 	return metrics, nil
 }
-

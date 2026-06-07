@@ -65,4 +65,3 @@ func SetupRoutes(
 	sse := api.Group("/events", middleware.AuthenticateJWT())
 	sse.Get("/stream", sseCtrl.Stream)
 }
-

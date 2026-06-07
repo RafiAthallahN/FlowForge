@@ -112,7 +112,6 @@ func TestAuthenticateJWT(t *testing.T) {
 	})
 }
 
-
 func TestRequireRoles(t *testing.T) {
 	app := fiber.New()
 

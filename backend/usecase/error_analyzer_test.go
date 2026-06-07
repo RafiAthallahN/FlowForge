@@ -20,7 +20,7 @@ func (t *mockTransport) RoundTrip(req *http.Request) (*http.Response, error) {
 
 func TestErrorAnalyzerFallback(t *testing.T) {
 	os.Setenv("OPENROUTER_API_KEY", "")
-	
+
 	analyzer := NewOpenRouterAnalyzer()
 	analysis, err := analyzer.AnalyzeFailure(context.Background(), "fetch-step", "delay", "context deadline exceeded", `{"duration": 5000}`)
 	if err != nil {

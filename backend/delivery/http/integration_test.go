@@ -261,7 +261,7 @@ func TestE2EAPIWorkflow(t *testing.T) {
 	t.Run("Rate Limiter Configuration Verification", func(t *testing.T) {
 		req := httptest.NewRequest("GET", "/api/auth/register", nil)
 		resp, _ := app.Test(req)
-		
+
 		// The rate limiter sets X-RateLimit headers
 		if resp.Header.Get("X-RateLimit-Limit") == "" {
 			t.Error("expected rate limiter headers, got empty")
@@ -333,7 +333,7 @@ func TestE2EAPIWorkflow(t *testing.T) {
 		// Verify SSE token auth via query parameter
 		ctx, cancel := context.WithCancel(context.Background())
 		req = httptest.NewRequest("GET", "/api/events/stream?token="+tokenA, nil).WithContext(ctx)
-		
+
 		go func() {
 			time.Sleep(50 * time.Millisecond)
 			cancel()
@@ -409,7 +409,7 @@ func TestE2EAPIWorkflow(t *testing.T) {
 		var runDetail map[string]interface{}
 		json.NewDecoder(resp.Body).Decode(&runDetail)
 		logsList := runDetail["logs"].([]interface{})
-		
+
 		if len(logsList) == 0 {
 			t.Fatal("expected logs to be created, got empty")
 		}

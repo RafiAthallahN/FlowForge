@@ -26,7 +26,7 @@ func TestE2EIntegration(t *testing.T) {
 	repo := repository.NewRunRepository(dbConn)
 	tenantID := "tenant-1"
 	ctx := context.Background()
-	
+
 	if err := dbConn.Create(&domain.Tenant{ID: tenantID, TenantID: tenantID, Name: "Tenant 1"}).Error; err != nil {
 		t.Fatalf("failed to seed tenant: %v", err)
 	}
@@ -63,7 +63,7 @@ func TestE2EIntegration(t *testing.T) {
 	if result.ErrorMessage != "" {
 		errMsg = &result.ErrorMessage
 	}
-	
+
 	err = repo.UpdateRun(ctx, "run-1", tenantID, string(result.Status), &completedAt, errMsg)
 	if err != nil {
 		t.Fatalf("failed to update run status: %v", err)

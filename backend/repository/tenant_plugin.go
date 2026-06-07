@@ -85,4 +85,3 @@ func (p *TenantIsolationPlugin) Initialize(db *gorm.DB) error {
 	})
 	return err
 }
-

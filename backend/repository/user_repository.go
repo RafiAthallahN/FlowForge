@@ -26,4 +26,3 @@ func (r *UserRepository) GetUserByEmail(ctx context.Context, email string) (*dom
 	}
 	return &user, nil
 }
-

@@ -193,12 +193,12 @@ func TestTenantIsolationPlugin(t *testing.T) {
 			PasswordHash: "hash",
 			Role:         "admin",
 		}
-		
+
 		// Attempting to Save should fail or not modify Tenant 1's record because the
 		// ON CONFLICT DO UPDATE statement's WHERE condition checks that tenant_id = tenant-2.
 		// Since it is tenant-1, no update happens and no hijack occurs.
 		res := db.WithContext(ctx2).Save(&uAttempt)
-		
+
 		// In SQLite, GORM's Save with an ON CONFLICT check that fails to update will
 		// either return 0 rows affected, or error.
 		if res.Error != nil {
@@ -221,4 +221,3 @@ func TestTenantIsolationPlugin(t *testing.T) {
 		}
 	})
 }
-

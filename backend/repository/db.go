@@ -16,7 +16,6 @@ func InitDB(dialector gorm.Dialector) (*gorm.DB, error) {
 		return nil, fmt.Errorf("failed to register tenant isolation plugin: %w", err)
 	}
 
-
 	// Enable SQLite foreign key constraints at connection start if using SQLite
 	if dialector.Name() == "sqlite" {
 		sqlDB, err := db.DB()
